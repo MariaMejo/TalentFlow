@@ -1,136 +1,124 @@
 # TalentFlow – Job Board & Application Tracking Platform
 
-## Live Demo
+Built as part of a Software Developer Internship technical assessment.
 
-https://talent-flow-green.vercel.app/
+## Live Demo
+🔗 [https://talent-flow-green.vercel.app/](https://talent-flow-green.vercel.app/)
 
 ## GitHub Repository
+🔗 [https://github.com/MariaMejo/TalentFlow](https://github.com/MariaMejo/TalentFlow)
 
-https://github.com/MariaMejo/TalentFlow
+---
+
+## Test Credentials
+
+Use these accounts to explore the platform without registering:
+
+| Role      | Email                  | Password   |
+|-----------|------------------------|------------|
+| Employer  | employer@test.com      | Test@1234  |
+| Candidate | candidate@test.com     | Test@1234  |
 
 ---
 
 ## Project Overview
 
-TalentFlow is a full-stack Job Board and Application Tracking System that connects employers and candidates. Employers can create and manage job listings, while candidates can browse jobs, apply, upload resumes, and track their application status.
+TalentFlow is a full-stack Job Board and Application Tracking System that connects employers and candidates. Employers can create and manage job listings, while candidates can browse jobs, apply, upload resumes, and track their application status in real time.
+
+---
+
+## Screenshots
+
+><img width="948" height="539" alt="Screenshot 2026-06-10 134628" src="https://github.com/user-attachments/assets/1eae212a-b7ca-4b0e-a976-0b097743a803" />
+
 
 ---
 
 ## Features
 
 ### Employer Features
-
-* Register and login securely
-* Create job listings
-* Update existing job listings
-* Close job listings
-* View applicants for posted jobs
-* Shortlist or reject candidates
-* View candidate resumes
+- Register and login securely
+- Create, update, and close job listings
+- View applicants for posted jobs
+- Shortlist or reject candidates
+- View candidate resumes
 
 ### Candidate Features
+- Register and login securely
+- Manage profile and upload resume
+- Browse, search, and filter jobs (by role, location, salary)
+- Apply for jobs
+- Track application status in real time
 
-* Register and login securely
-* Manage profile
-* Upload resume
-* Browse available jobs
-* Search and filter jobs
-* Apply for jobs
-* Track application status
-
-### Application Tracking
-
-* Applied
-* Shortlisted
-* Rejected
+### Application Status Tracking
+- Applied
+- Shortlisted
+- Rejected
 
 ### Email Notifications
-
-* Email notifications are triggered when application status changes.
-* Implemented using Supabase Edge Functions and Resend.
+- Triggered automatically when an application status changes
+- Implemented using Supabase Edge Functions and Resend API
+- Currently using Resend's testing domain — delivery is restricted to verified recipients. In production, a verified domain or SMTP provider would remove this restriction.
 
 ---
 
 ## Tech Stack
 
-### Frontend
-
-* React
-* TypeScript
-* Vite
-* Tailwind CSS
-
-### Backend
-
-* Supabase
-
-### Database
-
-* PostgreSQL (Supabase)
-
-### Authentication
-
-* Supabase Authentication
-
-### Storage
-
-* Supabase Storage (Resume Uploads)
-
-### Deployment
-
-* Vercel
+| Layer          | Technology                          |
+|----------------|--------------------------------------|
+| Frontend       | React, TypeScript, Vite, Tailwind CSS |
+| Backend        | Supabase Edge Functions              |
+| Database       | PostgreSQL (Supabase)                |
+| Authentication | Supabase Auth                        |
+| Storage        | Supabase Storage (resume uploads)    |
+| Email          | Resend API                           |
+| Deployment     | Vercel                               |
 
 ---
 
 ## Installation
 
 ### Clone Repository
-
 ```bash
-git clone <repository-url>
+git clone https://github.com/MariaMejo/TalentFlow.git
 cd job-board
 ```
 
 ### Install Dependencies
-
 ```bash
 npm install
 ```
 
-### Run Development Server
+### Environment Variables
 
+Create a `.env` file in the root directory:
+
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+### Run Development Server
 ```bash
 npm run dev
 ```
 
-### Build Project
-
+### Build for Production
 ```bash
 npm run build
 ```
 
 ---
 
-## Database Features
+## Database Schema
 
-* User Management
-* Role-Based Access Control
-* Job Listings
-* Applications
-* Resume Storage
-* Application Status Tracking
-
----
-
-## Submission Notes
-
-* Resume uploads are stored using Supabase Storage.
-* Application status updates are managed through Supabase.
-* Email notifications are implemented using Supabase Edge Functions and Resend.
-* The current deployment uses Resend's testing domain for email delivery.
+- **Users** — stores employer and candidate accounts with role-based access
+- **Jobs** — job listings with title, location, salary, description, and status
+- **Applications** — tracks candidate applications with status (Applied / Shortlisted / Rejected)
+- **Storage** — resume files stored via Supabase Storage
 
 ---
 
 ## Author
 
-Maria Mejo
+**Maria Mejo**
