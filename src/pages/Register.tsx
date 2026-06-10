@@ -7,12 +7,12 @@ import { Briefcase, UserCheck, AlertCircle, Loader2 } from 'lucide-react';
 export const Register: React.FC = () => {
   const navigate = useNavigate();
   const { refreshProfile } = useAuth();
-  
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState<'candidate' | 'employer'>('candidate');
-  
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
@@ -89,20 +89,12 @@ export const Register: React.FC = () => {
         return;
       }
 
-      setSuccessMsg('Account created successfully!');
-      
-      // Refresh context profile to load role
-      await refreshProfile();
+      setSuccessMsg('Account created successfully! Please sign in.');
 
-      // Redirect depending on role
       setTimeout(() => {
-        if (role === 'candidate') {
-          navigate('/candidate/dashboard');
-        } else {
-          navigate('/employer/dashboard');
-        }
-      }, 1000);
-      
+        navigate('/login');
+      }, 1500);
+
     } catch (err: any) {
       setError(err?.message || 'An unexpected error occurred.');
     } finally {
@@ -191,11 +183,10 @@ export const Register: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setRole('candidate')}
-                  className={`flex flex-col items-center justify-center p-4 border rounded-2xl cursor-pointer transition-all duration-200 text-center ${
-                    role === 'candidate'
+                  className={`flex flex-col items-center justify-center p-4 border rounded-2xl cursor-pointer transition-all duration-200 text-center ${role === 'candidate'
                       ? 'border-indigo-600 bg-indigo-50/50 text-indigo-700 shadow-sm ring-1 ring-indigo-600'
                       : 'border-gray-200 bg-white hover:bg-gray-50 text-gray-500 hover:text-gray-700'
-                  }`}
+                    }`}
                 >
                   <span className="text-base font-bold">Candidate</span>
                   <span className="text-xs text-gray-400 mt-1">Applying for jobs</span>
@@ -204,11 +195,10 @@ export const Register: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setRole('employer')}
-                  className={`flex flex-col items-center justify-center p-4 border rounded-2xl cursor-pointer transition-all duration-200 text-center ${
-                    role === 'employer'
+                  className={`flex flex-col items-center justify-center p-4 border rounded-2xl cursor-pointer transition-all duration-200 text-center ${role === 'employer'
                       ? 'border-indigo-600 bg-indigo-50/50 text-indigo-700 shadow-sm ring-1 ring-indigo-600'
                       : 'border-gray-200 bg-white hover:bg-gray-50 text-gray-500 hover:text-gray-700'
-                  }`}
+                    }`}
                 >
                   <span className="text-base font-bold">Employer</span>
                   <span className="text-xs text-gray-400 mt-1">Posting and hiring</span>
