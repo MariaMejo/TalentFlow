@@ -1,73 +1,136 @@
-# React + TypeScript + Vite
+# TalentFlow – Job Board & Application Tracking Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live Demo
 
-Currently, two official plugins are available:
+https://talent-flow-green.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## GitHub Repository
 
-## React Compiler
+https://github.com/MariaMejo/TalentFlow
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Project Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+TalentFlow is a full-stack Job Board and Application Tracking System that connects employers and candidates. Employers can create and manage job listings, while candidates can browse jobs, apply, upload resumes, and track their application status.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Employer Features
+
+* Register and login securely
+* Create job listings
+* Update existing job listings
+* Close job listings
+* View applicants for posted jobs
+* Shortlist or reject candidates
+* View candidate resumes
+
+### Candidate Features
+
+* Register and login securely
+* Manage profile
+* Upload resume
+* Browse available jobs
+* Search and filter jobs
+* Apply for jobs
+* Track application status
+
+### Application Tracking
+
+* Applied
+* Shortlisted
+* Rejected
+
+### Email Notifications
+
+* Email notifications are triggered when application status changes.
+* Implemented using Supabase Edge Functions and Resend.
+
+---
+
+## Tech Stack
+
+### Frontend
+
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
+
+### Backend
+
+* Supabase
+
+### Database
+
+* PostgreSQL (Supabase)
+
+### Authentication
+
+* Supabase Authentication
+
+### Storage
+
+* Supabase Storage (Resume Uploads)
+
+### Deployment
+
+* Vercel
+
+---
+
+## Installation
+
+### Clone Repository
+
+```bash
+git clone <repository-url>
+cd job-board
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Install Dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### Run Development Server
+
+```bash
+npm run dev
+```
+
+### Build Project
+
+```bash
+npm run build
+```
+
+---
+
+## Database Features
+
+* User Management
+* Role-Based Access Control
+* Job Listings
+* Applications
+* Resume Storage
+* Application Status Tracking
+
+---
+
+## Submission Notes
+
+* Resume uploads are stored using Supabase Storage.
+* Application status updates are managed through Supabase.
+* Email notifications are implemented using Supabase Edge Functions and Resend.
+* The current deployment uses Resend's testing domain for email delivery.
+
+---
+
+## Author
+
+Maria Mejo
