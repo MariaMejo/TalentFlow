@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
-import { useAuth } from '../hooks/useAuth';
+
 import { Briefcase, UserCheck, AlertCircle, Loader2 } from 'lucide-react';
 
 export const Register: React.FC = () => {
   const navigate = useNavigate();
-  const { refreshProfile } = useAuth();
+
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -184,8 +184,8 @@ export const Register: React.FC = () => {
                   type="button"
                   onClick={() => setRole('candidate')}
                   className={`flex flex-col items-center justify-center p-4 border rounded-2xl cursor-pointer transition-all duration-200 text-center ${role === 'candidate'
-                      ? 'border-indigo-600 bg-indigo-50/50 text-indigo-700 shadow-sm ring-1 ring-indigo-600'
-                      : 'border-gray-200 bg-white hover:bg-gray-50 text-gray-500 hover:text-gray-700'
+                    ? 'border-indigo-600 bg-indigo-50/50 text-indigo-700 shadow-sm ring-1 ring-indigo-600'
+                    : 'border-gray-200 bg-white hover:bg-gray-50 text-gray-500 hover:text-gray-700'
                     }`}
                 >
                   <span className="text-base font-bold">Candidate</span>
@@ -196,8 +196,8 @@ export const Register: React.FC = () => {
                   type="button"
                   onClick={() => setRole('employer')}
                   className={`flex flex-col items-center justify-center p-4 border rounded-2xl cursor-pointer transition-all duration-200 text-center ${role === 'employer'
-                      ? 'border-indigo-600 bg-indigo-50/50 text-indigo-700 shadow-sm ring-1 ring-indigo-600'
-                      : 'border-gray-200 bg-white hover:bg-gray-50 text-gray-500 hover:text-gray-700'
+                    ? 'border-indigo-600 bg-indigo-50/50 text-indigo-700 shadow-sm ring-1 ring-indigo-600'
+                    : 'border-gray-200 bg-white hover:bg-gray-50 text-gray-500 hover:text-gray-700'
                     }`}
                 >
                   <span className="text-base font-bold">Employer</span>
