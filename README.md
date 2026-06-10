@@ -27,12 +27,6 @@ TalentFlow is a full-stack Job Board and Application Tracking System that connec
 
 ---
 
-## Screenshots
-
-><img width="948" height="539" alt="Screenshot 2026-06-10 134628" src="https://github.com/user-attachments/assets/1eae212a-b7ca-4b0e-a976-0b097743a803" />
-<img width="959" height="537" alt="Screenshot 2026-06-10 134757" src="https://github.com/user-attachments/assets/6094e911-92b0-4924-b27a-19c7f738498e" />
-
-
 
 ---
 
