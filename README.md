@@ -26,16 +26,26 @@ Use these accounts to explore the platform without registering:
 TalentFlow is a full-stack Job Board and Application Tracking System that connects employers and candidates. Employers can create and manage job listings, while candidates can browse jobs, apply, upload resumes, and track their application status in real time.
 
 ---
-## Screanshots
+## Screenshots
 
-<img width="706" height="537" alt="Screenshot 2026-06-10 134812" src="https://github.com/user-attachments/assets/89c05f18-30e5-45bd-82e0-255b7538c9c5" />
-<img width="958" height="539" alt="Screenshot 2026-06-10 134710" src="https://github.com/user-attachments/assets/29231a46-c21d-432f-91c3-8e47a568d815" />
-<img width="959" height="538" alt="Screenshot 2026-06-10 134658" src="https://github.com/user-attachments/assets/5559d92d-447a-440e-94df-ce9132c938b2" />
-<img width="951" height="536" alt="Screenshot 2026-06-10 134731" src="https://github.com/user-attachments/assets/086fff8e-b3fb-4c30-a0f6-bd2ee73195a1" />
-<img width="671" height="520" alt="Screenshot 2026-06-10 134857" src="https://github.com/user-attachments/assets/9565488c-8a6e-42d0-b022-239706273ea2" />
-<img width="959" height="537" alt="Screenshot 2026-06-10 134757" src="https://github.com/user-attachments/assets/e2cdf976-5806-40f9-99db-8896e7e47027" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/89c05f18-30e5-45bd-82e0-255b7538c9c5" width="700"/>
+  <br><br>
 
+  <img src="https://github.com/user-attachments/assets/29231a46-c21d-432f-91c3-8e47a568d815" width="700"/>
+  <br><br>
 
+  <img src="https://github.com/user-attachments/assets/5559d92d-447a-440e-94df-ce9132c938b2" width="700"/>
+  <br><br>
+
+  <img src="https://github.com/user-attachments/assets/086fff8e-b3fb-4c30-a0f6-bd2ee73195a1" width="700"/>
+  <br><br>
+
+  <img src="https://github.com/user-attachments/assets/9565488c-8a6e-42d0-b022-239706273ea2" width="700"/>
+  <br><br>
+
+  <img src="https://github.com/user-attachments/assets/e2cdf976-5806-40f9-99db-8896e7e47027" width="700"/>
+</p>
 
 ---
 
