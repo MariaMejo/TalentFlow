@@ -28,23 +28,23 @@ TalentFlow is a full-stack Job Board and Application Tracking System that connec
 ---
 ## Screenshots
 
+<table>
+<tr>
+<td align="center">
+<b>Landing Page</b><br><br>
+<img src="https://github.com/user-attachments/assets/ab111964-3b2f-4bf9-9488-cd10f62fb07a" width="450">
+</td>
+
+<td align="center">
+<b>Candidate Dashboard</b><br><br>
+<img src="https://github.com/user-attachments/assets/9dbab3f0-de59-4ae6-b6fc-a43bd5e0a720" width="450">
+</td>
+</tr>
+</table>
+
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/89c05f18-30e5-45bd-82e0-255b7538c9c5" width="700"/>
-  <br><br>
-
-  <img src="https://github.com/user-attachments/assets/29231a46-c21d-432f-91c3-8e47a568d815" width="700"/>
-  <br><br>
-
-  <img src="https://github.com/user-attachments/assets/5559d92d-447a-440e-94df-ce9132c938b2" width="700"/>
-  <br><br>
-
-  <img src="https://github.com/user-attachments/assets/086fff8e-b3fb-4c30-a0f6-bd2ee73195a1" width="700"/>
-  <br><br>
-
-  <img src="https://github.com/user-attachments/assets/9565488c-8a6e-42d0-b022-239706273ea2" width="700"/>
-  <br><br>
-
-  <img src="https://github.com/user-attachments/assets/e2cdf976-5806-40f9-99db-8896e7e47027" width="700"/>
+<b>Employer Dashboard</b><br><br>
+<img src="https://github.com/user-attachments/assets/0e8a17eb-1ac4-48ad-a0cf-b0846ae8616b" width="650">
 </p>
 
 ---
