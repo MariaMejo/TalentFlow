@@ -9,7 +9,7 @@ import {
 
 export const Profile: React.FC = () => {
   const { user, profile, refreshProfile } = useAuth();
-  
+
   const [name, setName] = useState(profile?.name || '');
   const [isEditingName, setIsEditingName] = useState(false);
   const [updatingName, setUpdatingName] = useState(false);
@@ -57,7 +57,7 @@ export const Profile: React.FC = () => {
       setNameError('Name cannot be empty.');
       return;
     }
-    
+
     setUpdatingName(true);
     setNameError(null);
     setNameSuccess(false);
@@ -154,9 +154,7 @@ export const Profile: React.FC = () => {
     }
   };
 
-  const triggerFileSelect = () => {
-    fileInputRef.current?.click();
-  };
+
 
   const getFileNameFromUrl = (url: string | null | undefined) => {
     if (!url) return '';
@@ -203,11 +201,11 @@ export const Profile: React.FC = () => {
 
       {/* Core Profile Info */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
+
         {/* Left Side: General Profile Card */}
         <div className="md:col-span-1 bg-white border border-gray-100 rounded-3xl p-6 shadow-sm space-y-6">
           <h3 className="text-base font-bold text-gray-900 border-b border-gray-50 pb-3">Account Details</h3>
-          
+
           <div className="space-y-4">
             <div className="space-y-1">
               <span className="text-xs text-gray-400 font-semibold uppercase flex items-center gap-1.5">
@@ -284,7 +282,7 @@ export const Profile: React.FC = () => {
               </span>
             </div>
           </div>
-          
+
           {nameSuccess && (
             <div className="flex items-center gap-1.5 text-xs text-emerald-600 bg-emerald-50 border border-emerald-100 p-2 rounded-xl">
               <CheckCircle className="w-3.5 h-3.5" />
@@ -351,22 +349,22 @@ export const Profile: React.FC = () => {
             <h4 className="text-sm font-bold text-gray-800">
               {profile.resume_url ? 'Replace Resume' : 'Upload New Resume'}
             </h4>
-            
+
             <input
+              id="resume-upload"
               type="file"
               ref={fileInputRef}
               onChange={handleFileChange}
-              accept=".pdf,.doc,.docx"
-              className="hidden"
+              accept=".pdf,.doc,.docx,application/pdf"
+              className="sr-only"
             />
 
-            <div
-              onClick={triggerFileSelect}
-              className={`border-2 border-dashed rounded-2xl p-8 text-center cursor-pointer transition-all ${
-                uploading
+            <label
+              htmlFor="resume-upload"
+              className={`block border-2 border-dashed rounded-2xl p-8 text-center cursor-pointer transition-all ${uploading
                   ? 'border-indigo-300 bg-indigo-50/10 pointer-events-none'
                   : 'border-gray-200 hover:border-indigo-500 hover:bg-indigo-50/10'
-              }`}
+                }`}
             >
               <div className="space-y-3 max-w-sm mx-auto">
                 {uploading ? (
@@ -400,7 +398,7 @@ export const Profile: React.FC = () => {
                   </>
                 )}
               </div>
-            </div>
+            </label>
 
             {/* Upload Messages */}
             {uploadError && (
