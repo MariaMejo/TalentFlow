@@ -52,8 +52,15 @@ export const CandidateDashboard: React.FC = () => {
           </div>
           <div className="flex items-center gap-3">
             <Link
-              to="/candidate/applications"
+              to="/candidate/profile"
               className="bg-white text-indigo-700 hover:bg-indigo-50 px-5 py-2.5 rounded-xl font-semibold transition-all text-sm flex items-center gap-2"
+            >
+              <User className="w-4 h-4" />
+              My Profile
+            </Link>
+            <Link
+              to="/candidate/applications"
+              className="bg-white/10 hover:bg-white/20 border border-white/20 px-5 py-2.5 rounded-xl font-semibold transition-all text-sm flex items-center gap-2"
             >
               <FileText className="w-4 h-4" />
               My Applications
@@ -115,7 +122,7 @@ export const CandidateDashboard: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 bg-white border border-gray-100 rounded-3xl p-6 shadow-sm space-y-4">
           <h2 className="text-xl font-bold text-gray-900">Quick Actions</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <Link
               to="/jobs"
               className="flex items-center gap-3 p-4 bg-indigo-50/70 hover:bg-indigo-100/70 border border-indigo-100 rounded-2xl transition-colors group"
@@ -139,6 +146,19 @@ export const CandidateDashboard: React.FC = () => {
               <div>
                 <p className="font-semibold text-gray-900 text-sm group-hover:text-emerald-700 transition-colors">My Applications</p>
                 <p className="text-gray-500 text-xs">Track your progress</p>
+              </div>
+            </Link>
+
+            <Link
+              to="/candidate/profile"
+              className="flex items-center gap-3 p-4 bg-purple-50/70 hover:bg-purple-100/70 border border-purple-100 rounded-2xl transition-colors group"
+            >
+              <div className="bg-purple-600 p-2.5 rounded-xl text-white">
+                <User className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="font-semibold text-gray-900 text-sm group-hover:text-purple-700 transition-colors">Manage Profile</p>
+                <p className="text-gray-500 text-xs">Update resume & info</p>
               </div>
             </Link>
           </div>

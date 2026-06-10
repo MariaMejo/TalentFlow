@@ -18,7 +18,9 @@ export const Login: React.FC = () => {
     setError(null);
     setLoading(true);
 
-    if (!email || !password) {
+    const trimmedEmail = email.trim();
+
+    if (!trimmedEmail || !password) {
       setError('Please enter your email and password.');
       setLoading(false);
       return;
@@ -26,7 +28,7 @@ export const Login: React.FC = () => {
 
     try {
       const { data, error: signInError } = await supabase.auth.signInWithPassword({
-        email,
+        email: trimmedEmail,
         password,
       });
 

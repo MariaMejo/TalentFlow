@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
-import { Briefcase, Home, LayoutDashboard, LogOut } from 'lucide-react';
+import { Briefcase, Home, LayoutDashboard, LogOut, User } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const { user, profile, signOut } = useAuth();
@@ -64,6 +64,22 @@ export const Navbar: React.FC = () => {
               >
                 <LayoutDashboard className="w-4 h-4 mr-1" />
                 <span>Dashboard</span>
+              </NavLink>
+            )}
+
+            {user && profile && profile.role === 'candidate' && (
+              <NavLink
+                to="/candidate/profile"
+                className={({ isActive }) =>
+                  `flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    isActive
+                      ? 'bg-indigo-50 text-indigo-600 shadow-sm border border-indigo-100/50'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                  }`
+                }
+              >
+                <User className="w-4 h-4 mr-1" />
+                <span>Profile</span>
               </NavLink>
             )}
           </div>

@@ -13,6 +13,7 @@ import { CreateJob } from './pages/CreateJob';
 import { EditJob } from './pages/EditJob';
 import { MyApplications } from './pages/MyApplications';
 import { Applicants } from './pages/Applicants';
+import { Profile } from './pages/Profile';
 import { NotFound } from './pages/NotFound';
 
 function App() {
@@ -42,6 +43,14 @@ function App() {
               element={
                 <ProtectedRoute allowedRole="candidate">
                   <MyApplications />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="candidate/profile"
+              element={
+                <ProtectedRoute allowedRole="candidate">
+                  <Profile />
                 </ProtectedRoute>
               }
             />

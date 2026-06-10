@@ -23,8 +23,23 @@ export const Register: React.FC = () => {
     setSuccessMsg(null);
     setLoading(true);
 
-    if (!name || !email || !password) {
+    if (!name.trim() || !email.trim() || !password) {
       setError('Please fill in all fields.');
+      setLoading(false);
+      return;
+    }
+
+    // Email regex validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      setError('Please enter a valid email address.');
+      setLoading(false);
+      return;
+    }
+
+    // Password length validation
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters long.');
       setLoading(false);
       return;
     }
@@ -32,11 +47,11 @@ export const Register: React.FC = () => {
     try {
       // 1. Sign up the user in Supabase Auth
       const { data, error: signUpError } = await supabase.auth.signUp({
-        email,
+        email: email.trim(),
         password,
         options: {
           data: {
-            name,
+            name: name.trim(),
             role,
           },
         },
@@ -60,8 +75,8 @@ export const Register: React.FC = () => {
         .from('users')
         .insert({
           id: authUser.id,
-          name,
-          email,
+          name: name.trim(),
+          email: email.trim(),
           role,
         });
 

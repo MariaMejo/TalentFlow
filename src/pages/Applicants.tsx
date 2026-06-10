@@ -4,8 +4,9 @@ import { useAuth } from '../hooks/useAuth';
 import type { Application, ApplicationStatus } from '../types';
 import {
   Users, Loader2, Calendar, Briefcase, ChevronDown,
-  CheckCircle, XCircle, Clock, AlertCircle, Mail
+  CheckCircle, XCircle, Clock, AlertCircle, Mail, FileText
 } from 'lucide-react';
+import { sendEmailNotification } from '../services/notificationService';
 
 const formatDate = (iso: string) =>
   new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
@@ -22,6 +23,7 @@ export const Applicants: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [updatingId, setUpdatingId] = useState<string | null>(null);
   const [actionError, setActionError] = useState<string | null>(null);
+  const [successToast, setSuccessToast] = useState<string | null>(null);
 
   const fetchApplications = useCallback(async () => {
     if (!user) return;
@@ -33,7 +35,7 @@ export const Applicants: React.FC = () => {
       .select(`
         id, job_id, candidate_id, status, created_at,
         job:jobs!job_id(id, title, employer_id),
-        candidate:users!candidate_id(id, name, email)
+        candidate:users!candidate_id(id, name, email, resume_url)
       `)
       .order('created_at', { ascending: false });
 
@@ -56,6 +58,7 @@ export const Applicants: React.FC = () => {
     if (!user) return;
     setUpdatingId(appId);
     setActionError(null);
+    setSuccessToast(null);
 
     // First verify this application belongs to one of the employer's jobs
     const app = applications.find(a => a.id === appId);
@@ -74,6 +77,19 @@ export const Applicants: React.FC = () => {
       setApplications(prev =>
         prev.map(a => a.id === appId ? { ...a, status: newStatus } : a)
       );
+      
+      // Trigger simulated email notification to the candidate
+      if (app.candidate?.email) {
+        sendEmailNotification({
+          toEmail: app.candidate.email,
+          toName: app.candidate.name || 'Candidate',
+          jobTitle: (app.job as any)?.title || 'Job Listing',
+          status: newStatus,
+        });
+
+        setSuccessToast(`Application status updated to "${newStatus}" & email notification sent to ${app.candidate.email}`);
+        setTimeout(() => setSuccessToast(null), 4000);
+      }
     }
   };
 
@@ -108,6 +124,14 @@ export const Applicants: React.FC = () => {
               <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider">{label}</p>
             </div>
           ))}
+        </div>
+      )}
+
+      {/* Success Notification Toast */}
+      {successToast && (
+        <div className="flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl p-4 text-sm font-semibold shadow-sm animate-fade-in">
+          <CheckCircle className="w-5 h-5 flex-shrink-0 text-emerald-600" />
+          <span>{successToast}</span>
         </div>
       )}
 
@@ -168,6 +192,18 @@ export const Applicants: React.FC = () => {
                             <Calendar className="w-3 h-3" />
                             {formatDate(app.created_at)}
                           </span>
+                          {app.candidate?.resume_url && (
+                            <a
+                              href={app.candidate.resume_url}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="flex items-center gap-1 text-red-600 hover:text-red-700 font-bold transition-colors ml-1 border-l border-gray-200 pl-2"
+                              title="Click to view resume in new tab"
+                            >
+                              <FileText className="w-3 h-3" />
+                              View Resume
+                            </a>
+                          )}
                         </div>
                       </div>
                     </div>

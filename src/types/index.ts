@@ -3,8 +3,10 @@ export interface UserProfile {
   email: string;
   name: string;
   role: 'candidate' | 'employer';
+  resume_url?: string | null;
   created_at?: string;
 }
+
 
 export interface Job {
   id: string;
@@ -56,5 +58,6 @@ export interface Application {
     id: string;
     name: string;
     email: string;
+    resume_url?: string | null;
   };
 }
