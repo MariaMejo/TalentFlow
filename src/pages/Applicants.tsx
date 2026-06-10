@@ -77,17 +77,33 @@ export const Applicants: React.FC = () => {
       setApplications(prev =>
         prev.map(a => a.id === appId ? { ...a, status: newStatus } : a)
       );
-      
+
       // Trigger simulated email notification to the candidate
       if (app.candidate?.email) {
-        sendEmailNotification({
-          toEmail: app.candidate.email,
-          toName: app.candidate.name || 'Candidate',
-          jobTitle: (app.job as any)?.title || 'Job Listing',
-          status: newStatus,
-        });
+        try {
+          await sendEmailNotification({
+            toEmail: app.candidate.email,
+            toName: app.candidate.name || 'Candidate',
+            jobTitle: (app.job as any)?.title || 'Job Listing',
+            status: newStatus,
+          });
 
-        setSuccessToast(`Application status updated to "${newStatus}" & email notification sent to ${app.candidate.email}`);
+          setSuccessToast(
+            `Application status updated to "${newStatus}" and email notification sent successfully.`
+          );
+        } catch (err) {
+          console.error("Email notification failed:", err);
+
+          setSuccessToast(
+            `Application status updated successfully. Email notification could not be delivered.`
+          );
+        }
+
+        setTimeout(() => setSuccessToast(null), 4000);
+      } else {
+        setSuccessToast(
+          `Application status updated successfully.`
+        );
         setTimeout(() => setSuccessToast(null), 4000);
       }
     }
